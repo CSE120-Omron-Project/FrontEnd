@@ -54,9 +54,7 @@ import com.example.android.wearable.wear.wearnotifications.handlers.InboxMainAct
 import com.example.android.wearable.wear.wearnotifications.handlers.MessagingIntentService;
 import com.example.android.wearable.wear.wearnotifications.handlers.MessagingMainActivity;
 
-/**
- * The Activity demonstrates several popular Notification.Style examples along with their best
- * practices (include proper Wear support when you don't have a dedicated Wear app).
+/*
  */
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final String Low_Risk = "Low_Risk";
     private static final String Medium = "Medium";
 
-    // Collection of notification styles to back ArrayAdapter for Spinner.
+    // Collection of notification types to back ArrayAdapter for Spinner.
     private static final String[] NOTIFICATION_STYLES = {
             Select_Type, Urgent, Low_Risk, Medium
     };

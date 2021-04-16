@@ -152,17 +152,17 @@ public final class MockDatabase {
         private BigPictureStyleSocialAppData() {
             // Standard Notification values:
             // Title/Content for API <16 (4.0 and below) devices.
-            mContentTitle = "Bob's Post";
-            mContentText = "[Picture] Like my shot of Earth?";
+            mContentTitle = "Urgent";
+            mContentText = "Robot [Picture] needs maintenance now.";
             mPriority = NotificationCompat.PRIORITY_HIGH;
 
             // Style notification values:
-            mBigImage = R.drawable.earth;
-            mBigContentTitle = "Bob's Post";
-            mSummaryText = "Like my shot of Earth?";
+            mBigImage = R.drawable.robotbroken;
+            mBigContentTitle = "Urgent";
+            mSummaryText = "Maintenance Finished?";
 
             // This would be possible responses based on the contents of the post.
-            mPossiblePostResponses = new CharSequence[] {"Yes", "No", "Maybe?"};
+            mPossiblePostResponses = new CharSequence[] {"Yes", "No", "Later"};
 
             mParticipants = new ArrayList<>();
             mParticipants.add("Bob Smith");
@@ -235,31 +235,31 @@ public final class MockDatabase {
         private InboxStyleEmailAppData() {
             // Standard Notification values:
             // Title/Content for API <16 (4.0 and below) devices.
-            mContentTitle = "5 new emails";
-            mContentText = "from Jane, Jay, Alex +2 more";
+            mContentTitle = "Low Priority Notification";
+            mContentText = "from Robot#[1], Robot#[2], Robot#[3] +2 more";
             mNumberOfNewEmails = 5;
             mPriority = NotificationCompat.PRIORITY_DEFAULT;
 
             // Style notification values:
-            mBigContentTitle = "5 new emails from Jane, Jay, Alex +2";
-            mSummaryText = "New emails";
+            mBigContentTitle = "Low Priority Notifications";
+            mSummaryText = "New low priority notifications";
 
             // Add each summary line of the new emails, you can add up to 5.
             mIndividualEmailSummary = new ArrayList<>();
-            mIndividualEmailSummary.add("Jane Faab  -   Launch Party is here...");
-            mIndividualEmailSummary.add("Jay Walker -   There's a turtle on the server!");
-            mIndividualEmailSummary.add("Alex Chang -   Check this out...");
-            mIndividualEmailSummary.add("Jane Johns -   Check in code?");
-            mIndividualEmailSummary.add("John Smith -   Movies later....");
+            mIndividualEmailSummary.add("Robot#[1]  -   Wheels may need repair");
+            mIndividualEmailSummary.add("Robot#[2] -   Needs re-oiling");
+            mIndividualEmailSummary.add("Robot#[3] -   Manual Battery-check needed");
+            mIndividualEmailSummary.add("Robot#[4] -   Potential brake issue");
+            mIndividualEmailSummary.add("Robot#[5] -   Wheels may need repair");
 
             // If the phone is in "Do not disturb mode, the user will still be notified if
             // the user(s) is starred as a favorite.
             mParticipants = new ArrayList<>();
-            mParticipants.add("Jane Faab");
-            mParticipants.add("Jay Walker");
-            mParticipants.add("Alex Chang");
-            mParticipants.add("Jane Johns");
-            mParticipants.add("John Smith");
+            mParticipants.add("Robot#[1] ");
+            mParticipants.add("Robot#[2] ");
+            mParticipants.add("Robot#[3]" );
+            mParticipants.add("Robot#[4] ");
+            mParticipants.add("Robot#[5]");
 
             // Notification channel values (for devices targeting 26 and above):
             mChannelId = "channel_email_1";
@@ -334,15 +334,15 @@ public final class MockDatabase {
             // Note: I am actually hardcoding these Strings based on info below. You would be
             // pulling these values from the same source in your database. I leave this up here, so
             // you can see the standard parts of a Notification first.
-            mContentTitle = "3 Messages w/ Famous, Wendy";
-            mContentText = "HEY, I see my house! :)";
+            mContentTitle = "3 Notifications Robot#[1], Robot#[2]";
+            mContentText = "Potential medium-level issue :)";
             mPriority = NotificationCompat.PRIORITY_HIGH;
 
             // Create the users for the conversation.
             // Name preferred when replying to chat.
             mMe =
                     new Person.Builder()
-                            .setName("Me MacDonald")
+                            .setName("Robot#[1]")
                             .setKey("1234567890")
                             .setUri("tel:1234567890")
                             .setIcon(
@@ -351,7 +351,7 @@ public final class MockDatabase {
 
             Person participant1 =
                     new Person.Builder()
-                            .setName("Famous Frank")
+                            .setName("Robot#[2]")
                             .setKey("9876543210")
                             .setUri("tel:9876543210")
                             .setIcon(
@@ -360,7 +360,7 @@ public final class MockDatabase {
 
             Person participant2 =
                     new Person.Builder()
-                            .setName("Wendy Weather")
+                            .setName("Robot#[3]")
                             .setKey("2233221122")
                             .setUri("tel:2233221122")
                             .setIcon(IconCompat.createWithResource(context, R.drawable.wendy_wonda))
@@ -380,25 +380,25 @@ public final class MockDatabase {
             mMessages.add(
                     // When you are setting an image for a message, text does not display.
                     new MessagingStyle.Message("", 1528490641998l, participant1)
-                            .setData("image/png", resourceToUri(context, R.drawable.earth)));
+                            .setData("image/png", resourceToUri(context, R.drawable.robotbroken)));
 
             mMessages.add(
                     new MessagingStyle.Message(
-                            "Visiting the moon again? :P", 1528490643998l, mMe));
+                            "Break issue detected", 1528490643998l, mMe));
 
             mMessages.add(
-                    new MessagingStyle.Message("HEY, I see my house!", 1528490645998l, participant2));
+                    new MessagingStyle.Message("Potential i/o switch faulty", 1528490645998l, participant2));
 
             // String version of the mMessages above.
             mFullConversation =
-                    "Famous: [Picture of Moon]\n\n"
-                            + "Me: Visiting the moon again? :P\n\n"
-                            + "Wendy: HEY, I see my house! :)\n\n";
+                    "Robot#[1]: [Picture of Moon]\n\n"
+                            + "Break issue detected\n\n"
+                            + "Potential i/o switch faulty)\n\n";
 
             // Responses based on the last messages of the conversation. You would use
             // Machine Learning to get these (https://developers.google.com/ml-kit/).
             mReplyChoicesBasedOnLastMessages =
-                    new CharSequence[] {"Me too!", "How's the weather?", "You have good eyesight."};
+                    new CharSequence[] {"Confirmed", "Any other issues?", "Issue can be delayed"};
 
             // Notification channel values (for devices targeting 26 and above):
             mChannelId = "channel_messaging_1";
