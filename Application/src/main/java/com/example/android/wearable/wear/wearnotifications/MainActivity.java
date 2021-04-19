@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static final String TAG = "MainActivity";
 
     public static final int NOTIFICATION_ID = 888;
-
+    // testing
     // Used for Notification Style array and switch statement for Spinner selection.
     private static final String Select_Type = "Select Notification Type";
     private static final String Urgent = "Urgent";
