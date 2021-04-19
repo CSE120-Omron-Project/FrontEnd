@@ -177,9 +177,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
+
+
     /*
      * Generates a BIG_TEXT_STYLE Notification that supports both phone/tablet and wear. For devices
-     * on API level 16 (4.1.x - Jelly Bean) and after, displays BIG_TEXT_STYLE. Otherwise, displays
+     * on API level 16 (4.1.x - Jelly Bean) and after, displays BIG_TEXT_STYLE.  Otherwise, displays
      * a basic notification.
      */
     private void generateBigTextStyleNotification() {
